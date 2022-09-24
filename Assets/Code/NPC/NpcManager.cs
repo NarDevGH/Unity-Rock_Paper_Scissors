@@ -12,7 +12,8 @@ public class NpcManager : MonoBehaviour
     private const int SCISSOR_LAYER = 8;
 
     [SerializeField] private int sideAmmount = 1;
-    [SerializeField] private BasicNpcSpawner spawner;
+
+    [SerializeField] private AbsNPCsSpawner spawner;
 
     [Header("Setup")]
 

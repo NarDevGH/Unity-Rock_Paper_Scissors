@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BasicNpcSpawner : MonoBehaviour
+public class BasicNpcSpawner : AbsNPCsSpawner
 {
     [Header("Positions")]
     [SerializeField] private Transform paperSpawn;
@@ -14,7 +14,7 @@ public class BasicNpcSpawner : MonoBehaviour
     [SerializeField] private GameObject rockPrefab;
     [SerializeField] private GameObject scissorPrefab;
 
-    public void SpawnNPCs(int ammount)
+    public override void SpawnNPCs(int ammount)
     {
         SpawnPaper(ammount);
         SpawnRock(ammount);
