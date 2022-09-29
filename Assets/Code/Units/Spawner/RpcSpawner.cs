@@ -1,29 +1,25 @@
-using Pathfinding;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class NpcSpawner : AbsNPCsSpawner
+public class RpcSpawner : MonoBehaviour, IUnitsSpawner
 {
     [SerializeField,Range(0,1)] private float spaceBetween;
 
     [Header("Positions")]
-    [SerializeField] private Transform paperSpawn;
     [SerializeField] private Transform rockSpawn;
+    [SerializeField] private Transform paperSpawn;
     [SerializeField] private Transform scissorSpawn;
 
     [Header("Prefabs")]
-    [SerializeField] private GameObject paperPrefab;
     [SerializeField] private GameObject rockPrefab;
+    [SerializeField] private GameObject paperPrefab;
     [SerializeField] private GameObject scissorPrefab;
 
-
-    public override void SpawnNPCs(int ammount)
+    public void SpawnUnits(int ammount)
     {
-        SpawnPaper(ammount);
         SpawnRock(ammount);
+        SpawnPaper(ammount);
         SpawnScissor(ammount);
     }
 
@@ -35,8 +31,10 @@ public class NpcSpawner : AbsNPCsSpawner
         int dist = 1;
         for (int i = 0; i < ammount; i++)
         {
-            NpcManager.Singleton.AddPaperToList(Instantiate(paperPrefab, posts.Last(), Quaternion.identity));
+            var unitClone = Instantiate(paperPrefab, posts.Last(), Quaternion.identity);
             posts.Add(NewPos(paperSpawn.position, ref dir, ref dist));
+
+            UnitsManager.Singleton.AddPaperToList(unitClone.GetComponent<IUnit>());
         }
     }
     private void SpawnRock(int ammount)
@@ -47,8 +45,10 @@ public class NpcSpawner : AbsNPCsSpawner
         int dist = 1;
         for (int i = 0; i < ammount; i++)
         {
-            NpcManager.Singleton.AddRockToList(Instantiate(rockPrefab, posts.Last(), Quaternion.identity));
+            var unitClone = Instantiate(rockPrefab, posts.Last(), Quaternion.identity);
             posts.Add(NewPos(rockSpawn.position, ref dir, ref dist));
+
+            UnitsManager.Singleton.AddRockToList(unitClone.GetComponent<IUnit>());
         }
     }
     private void SpawnScissor(int ammount)
@@ -59,8 +59,10 @@ public class NpcSpawner : AbsNPCsSpawner
         int dist = 1;
         for (int i = 0; i < ammount; i++)
         {
-            NpcManager.Singleton.AddScissorToList(Instantiate(scissorPrefab, posts.Last(), Quaternion.identity));
+            var unitClone = Instantiate(scissorPrefab, posts.Last(), Quaternion.identity);
             posts.Add(NewPos(scissorSpawn.position, ref dir, ref dist));
+
+            UnitsManager.Singleton.AddScissorToList(unitClone.GetComponent<IUnit>());
         }
     }
 
