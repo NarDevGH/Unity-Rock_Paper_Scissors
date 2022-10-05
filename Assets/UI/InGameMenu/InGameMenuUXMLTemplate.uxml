@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/InGameMenu/InGameMenuStyle.uss?fileID=7433441132597879392&amp;guid=f51f327a549d7e94e956c941d4480562&amp;type=3#InGameMenuStyle" />
+    <ui:VisualElement name="UI_Container" style="flex-grow: 1; align-items: center;">
+        <ui:VisualElement name="MenuUI_Container" style="width: 30%; height: 100%; background-color: rgba(0, 0, 0, 0.49);">
+            <ui:VisualElement style="height: 50%; align-items: center; justify-content: center; flex-grow: 1; margin-top: 10%; margin-bottom: 40%;">
+                <ui:Button text="Continue" display-tooltip-when-elided="true" name="Continue_Button" class="menuButon button" />
+                <ui:Button text="Settigns" display-tooltip-when-elided="true" name="Settings_Button" class="menuButon button" />
+                <ui:Button text="MainMenu" display-tooltip-when-elided="true" name="MainMenu_Button" class="menuButon button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -29,16 +29,7 @@ public class UnitsManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Singleton is null)
-        {
-            Singleton = this;
-        }
-        else
-        {
-            Debug.LogError("Warning: There is more than one AiManager instance.");
-            enabled = false;
-            return;
-        }
+        Singleton = this;
 
         paperUnitsList = new List<IUnit>();
         rockUnitsList = new List<IUnit>();

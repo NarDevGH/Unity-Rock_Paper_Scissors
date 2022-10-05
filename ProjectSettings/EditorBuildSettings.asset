@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: b18cc4a23eff26e41a3e0c4ef8745a47
   - enabled: 1
-    path: Assets/Scenes/MapSize/16x16.unity
-    guid: b7704b660b1709d4ab214f92b5308e1f
+    path: Assets/Scenes/Maps/Map1.unity
+    guid: c2ab2707e16a8c649bcab1227923005f
   - enabled: 1
-    path: Assets/Scenes/MapSize/32x32.unity
-    guid: 3063d37aeb51e3242a586f0933963dc2
+    path: Assets/Scenes/Maps/Map2.unity
+    guid: 021222a6a2c0a9f4dba4854ee78f7a07
   - enabled: 1
-    path: Assets/Scenes/MapSize/64x64.unity
-    guid: 1fc69c6af90c1464395e1d6c9c9a6512
+    path: Assets/Scenes/Maps/Map3.unity
+    guid: fe2a746b9361f8b41ae89851170fcef1
   m_configObjects: {}

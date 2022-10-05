@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MapSelectorHandler : MonoBehaviour
@@ -18,8 +19,6 @@ public class MapSelectorHandler : MonoBehaviour
     {
         uiDocument = GetComponent<UIDocument>();
         GetMaps();
-        //SetVisualElements();
-        //DisplayCurrentMap();
     }
 
     private void OnEnable()
@@ -34,7 +33,7 @@ public class MapSelectorHandler : MonoBehaviour
 
         mapButton = uiDocument.rootVisualElement.Q<Button>("SelectMap_Button");
         mapButton.clicked += OnClickSelectMap;
-
+        
         uiDocument.rootVisualElement.Q<Button>("NextMap_Button").clicked += OnClickNextMap;
         uiDocument.rootVisualElement.Q<Button>("PrevMap_Button").clicked += OnClickPrevtMap;
         uiDocument.rootVisualElement.Q<Button>("Return_Button").clicked += OnClickedReturn;
@@ -60,7 +59,7 @@ public class MapSelectorHandler : MonoBehaviour
     }
     private void OnClickSelectMap()
     {
-
+        SceneManager.LoadScene(maps[currentMapIndex].mapName);
     }
     private void OnClickedReturn()
     {
