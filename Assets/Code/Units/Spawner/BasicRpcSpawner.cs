@@ -16,6 +16,16 @@ public class BasicRpcSpawner : MonoBehaviour,IUnitsSpawner
     [SerializeField] private GameObject paperPrefab;
     [SerializeField] private GameObject scissorPrefab;
 
+    private void Awake()
+    {
+        if (!rockPrefab) Debug.LogError("Missing rockPrefab field.");
+        if (!paperPrefab) Debug.LogError("Missing paperPrefab field.");
+        if (!scissorPrefab) Debug.LogError("Missing scissorPrefab field.");
+        if (!rockSpawn) Debug.LogError("Missing rockSpawn field.");
+        if (!paperSpawn) Debug.LogError("Missing paperSpawn field.");
+        if (!scissorSpawn) Debug.LogError("Missing scissorSpawn field.");
+    }
+
     public void SpawnUnits(int ammount)
     {
         SpawnRock(ammount);
@@ -23,20 +33,9 @@ public class BasicRpcSpawner : MonoBehaviour,IUnitsSpawner
         SpawnScissor(ammount);
     }
 
-    private void SpawnPaper(int ammount) {
-        List<Vector3> posts = new List<Vector3>();
-        posts.Add(paperSpawn.position);
-        int dir = 0;
-        int dist = 1;
-        for (int i = 0; i < ammount; i++)
-        {
-            var unitClone = Instantiate(paperPrefab, posts.Last(), Quaternion.identity);
-            posts.Add(NewPos(paperSpawn.position, ref dir, ref dist));
-
-            UnitsManager.Singleton.AddPaperToList(unitClone.GetComponent<IUnit>());
-        }
-    }
     private void SpawnRock(int ammount) {
+        if (!rockPrefab || !rockSpawn) return;
+
         List<Vector3> usedPositions = new List<Vector3>();
         usedPositions.Add(rockSpawn.position);
         int dir = 0;
@@ -53,7 +52,24 @@ public class BasicRpcSpawner : MonoBehaviour,IUnitsSpawner
 
         }
     }
+    private void SpawnPaper(int ammount) {
+        if (!paperPrefab || !paperSpawn) return;
+
+        List<Vector3> posts = new List<Vector3>();
+        posts.Add(paperSpawn.position);
+        int dir = 0;
+        int dist = 1;
+        for (int i = 0; i < ammount; i++)
+        {
+            var unitClone = Instantiate(paperPrefab, posts.Last(), Quaternion.identity);
+            posts.Add(NewPos(paperSpawn.position, ref dir, ref dist));
+
+            UnitsManager.Singleton.AddPaperToList(unitClone.GetComponent<IUnit>());
+        }
+    }
     private void SpawnScissor(int ammount) {
+        if (!scissorPrefab || !scissorSpawn) return;
+
         List<Vector3> posts = new List<Vector3>();
         posts.Add(scissorSpawn.position);
         int dir = 0;

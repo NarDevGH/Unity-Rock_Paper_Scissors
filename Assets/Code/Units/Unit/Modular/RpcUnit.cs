@@ -13,6 +13,8 @@ public class RpcUnit : MonoBehaviour, IUnit
     public UnityEvent onStopUnit { get; private set; }
 
     [SerializeField, Range(0, 2)] public int npcValue = 0;
+    [SerializeField] private bool _isNpc;
+    [SerializeField] private bool _startActive;
 
     private void Awake()
     {
@@ -20,7 +22,8 @@ public class RpcUnit : MonoBehaviour, IUnit
         onStopUnit = new UnityEvent();
         onTypeChange = new UnityEvent();
 
-        isNpc = true;
+        isNpc = _isNpc;
+        active = _startActive;
         unitType = (UnitType)npcValue;
     }
 

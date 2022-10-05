@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MouseCameraInput : MonoBehaviour
 {
+    [SerializeField, Range(0.1f, 0.9f)] float screenEdgeRange = 0.1f;
+
     private ICameraController _cameraController;
 
     private void Awake()
@@ -28,20 +30,20 @@ public class MouseCameraInput : MonoBehaviour
     {
         Vector2 moveDir = Vector2.zero;
 
-        if (Input.mousePosition.y > Screen.height * 0.9)
+        if (Input.mousePosition.y > Screen.height * (1 - screenEdgeRange))
         {
             moveDir += Vector2.up;
         }
-        else if (Input.mousePosition.y < Screen.height * 0.1)
+        else if (Input.mousePosition.y < Screen.height * (0 + screenEdgeRange))
         {
             moveDir += Vector2.down;
         }
     
-        if (Input.mousePosition.x > Screen.width * 0.9)
+        if (Input.mousePosition.x > Screen.width * (1 - screenEdgeRange))
         {
             moveDir += Vector2.right;
         }
-        else if (Input.mousePosition.x < Screen.width * 0.1)
+        else if (Input.mousePosition.x < Screen.width * (0 + screenEdgeRange))
         {
             moveDir += Vector2.left;
         }

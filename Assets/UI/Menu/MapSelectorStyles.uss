@@ -1,0 +1,14 @@
+.midButton {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 53px;
+}
+
+.selectMapButton {
+    background-color: rgb(255, 255, 255);
+    background-image: url('project://database/Assets/ThirdPartyAssets/AstarPathfindingProject/ExampleScenes/Example11_RVO/Arrow.psd?fileID=2800000&guid=5de2706722ecf4e7797812f980546c1a&type=3#Arrow');
+    height: 70%;
+    width: 50%;
+    justify-content: center;
+    margin-top: 5%;
+}

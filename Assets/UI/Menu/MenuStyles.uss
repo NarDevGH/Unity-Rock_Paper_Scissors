@@ -1,0 +1,13 @@
+.menuButon {
+    width: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+}
+
+.menuButon:hover {
+    margin-left: 0;
+    margin-right: 0;
+}
